@@ -1,0 +1,1325 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寻剧吧入口 - 官方视频门户,追剧社区的精品内容生态</title>
+<meta name="description" content="寻剧吧入口官方网站，面向剧迷与创作者的视频内容社区，汇聚剧集推荐、深度评测、创作幕后与行业观察，持续运营的追剧品牌平台。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f5b73b'/%3E%3Cpath d='M24 18l22 14-22 14z' fill='%231c1a17'/%3E%3C/svg%3E">
+<style>
+:root{
+  --xjb-amber:#f5b73b;
+  --xjb-amber-deep:#d98f13;
+  --xjb-ink:#1c1a17;
+  --xjb-ink-soft:#4a443b;
+  --xjb-cream:#fbf6ec;
+  --xjb-cream-2:#f4ebda;
+  --xjb-line:#e4d8c4;
+  --xjb-white:#ffffff;
+  --xjb-radius:16px;
+  --xjb-shadow:0 10px 30px rgba(60,45,15,.09);
+  --xjb-head-h:118px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,sans-serif;
+  background:var(--xjb-cream);
+  color:var(--xjb-ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul,ol{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:800}
+p{margin:0 0 1em}
+section{scroll-margin-top:calc(var(--xjb-head-h) + 12px)}
+
+.xjb-wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+/* ---------- sticky bar ---------- */
+.xjb-sticky{position:sticky;top:0;z-index:90}
+.xjb-announce{
+  background:linear-gradient(90deg,var(--xjb-ink) 0%,#3a3025 100%);
+  color:#f6e8cb;
+  font-size:13.5px;
+  letter-spacing:.3px;
+}
+.xjb-announce .xjb-wrap{
+  display:flex;align-items:center;gap:14px;
+  min-height:40px;padding-top:6px;padding-bottom:6px;flex-wrap:wrap;
+}
+.xjb-announce-tag{
+  background:var(--xjb-amber);color:var(--xjb-ink);
+  font-weight:800;font-size:11.5px;padding:2px 9px;border-radius:999px;
+  letter-spacing:1px;white-space:nowrap;
+}
+.xjb-announce p{margin:0;font-size:13.5px;color:#f6e8cb}
+.xjb-announce a{color:var(--xjb-amber);font-weight:700;white-space:nowrap}
+.xjb-announce a:hover{text-decoration:underline}
+
+.xjb-header{
+  background:rgba(251,246,236,.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--xjb-line);
+}
+.xjb-header .xjb-wrap{
+  display:flex;align-items:center;gap:18px;min-height:70px;flex-wrap:wrap;
+}
+.xjb-brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:19px;letter-spacing:.5px}
+.xjb-brand-mark{
+  width:38px;height:38px;border-radius:11px;background:var(--xjb-amber);
+  display:grid;place-items:center;flex:0 0 auto;box-shadow:0 4px 12px rgba(217,143,19,.35);
+}
+.xjb-brand-mark svg{width:18px;height:18px}
+.xjb-brand small{display:block;font-size:10.5px;font-weight:600;color:var(--xjb-ink-soft);letter-spacing:2px}
+.xjb-nav{margin-left:auto;display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.xjb-nav a{
+  font-size:14.5px;font-weight:600;color:var(--xjb-ink-soft);
+  padding:8px 12px;border-radius:9px;transition:.2s;
+}
+.xjb-nav a:hover{background:var(--xjb-cream-2);color:var(--xjb-ink)}
+.xjb-search{
+  display:flex;align-items:center;gap:8px;background:var(--xjb-white);
+  border:1.5px solid var(--xjb-line);border-radius:999px;padding:5px 6px 5px 14px;
+}
+.xjb-search input{
+  border:0;outline:0;background:transparent;font-size:14px;width:150px;
+  font-family:inherit;color:var(--xjb-ink);
+}
+.xjb-search button{
+  border:0;cursor:pointer;background:var(--xjb-ink);color:#fff;
+  font-family:inherit;font-size:13px;font-weight:700;padding:7px 14px;border-radius:999px;
+  transition:.2s;
+}
+.xjb-search button:hover{background:var(--xjb-amber-deep)}
+.xjb-burger{
+  display:none;border:1.5px solid var(--xjb-line);background:var(--xjb-white);
+  width:42px;height:40px;border-radius:11px;cursor:pointer;
+  align-items:center;justify-content:center;flex-direction:column;gap:5px;
+}
+.xjb-burger span{display:block;width:18px;height:2px;background:var(--xjb-ink);border-radius:2px;transition:.25s}
+.xjb-burger.xjb-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.xjb-burger.xjb-open span:nth-child(2){opacity:0}
+.xjb-burger.xjb-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.xjb-search-feedback{
+  font-size:12.5px;color:var(--xjb-amber-deep);font-weight:700;
+  width:100%;padding-top:2px;min-height:0;
+}
+
+/* ---------- hero 4:6 ---------- */
+.xjb-hero{position:relative;overflow:hidden;padding:56px 0 64px}
+.xjb-hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(700px 380px at 88% -8%, rgba(245,183,59,.34), transparent 70%),
+    radial-gradient(520px 300px at -10% 100%, rgba(217,143,19,.16), transparent 70%),
+    linear-gradient(180deg,#fbf6ec 0%,#f6eedd 100%);
+  z-index:-1;
+}
+.xjb-hero-grid{
+  display:grid;grid-template-columns:minmax(0,0.72fr) minmax(0,1fr);
+  gap:46px;align-items:center;
+}
+.xjb-hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(28,26,23,.06);border:1px solid rgba(28,26,23,.12);
+  padding:5px 14px;border-radius:999px;font-size:12.5px;font-weight:700;
+  letter-spacing:1.4px;color:var(--xjb-ink-soft);margin-bottom:20px;
+}
+.xjb-hero-eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--xjb-amber-deep);flex:0 0 auto}
+.xjb-hero h1{
+  font-size:clamp(34px,5vw,54px);letter-spacing:-1px;margin-bottom:16px;
+}
+.xjb-hero h1 em{font-style:normal;color:var(--xjb-amber-deep);position:relative;white-space:nowrap}
+.xjb-hero-lead{font-size:16px;color:var(--xjb-ink-soft);margin-bottom:22px;max-width:34em}
+.xjb-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.xjb-btn{
+  display:inline-flex;align-items:center;gap:8px;border-radius:999px;
+  font-size:14.5px;font-weight:800;padding:12px 24px;cursor:pointer;
+  border:1.5px solid transparent;font-family:inherit;transition:.22s;
+}
+.xjb-btn-primary{background:var(--xjb-ink);color:#fff;box-shadow:0 8px 20px rgba(28,26,23,.22)}
+.xjb-btn-primary:hover{background:#000;transform:translateY(-2px)}
+.xjb-btn-ghost{background:transparent;border-color:rgba(28,26,23,.24);color:var(--xjb-ink)}
+.xjb-btn-ghost:hover{border-color:var(--xjb-ink);background:rgba(255,255,255,.6)}
+.xjb-btn-amber{background:var(--xjb-amber);color:var(--xjb-ink);box-shadow:0 8px 18px rgba(217,143,19,.3)}
+.xjb-btn-amber:hover{background:#ffc94f;transform:translateY(-2px)}
+.xjb-hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.xjb-stat{
+  background:rgba(255,255,255,.72);border:1px solid var(--xjb-line);
+  border-radius:13px;padding:12px 14px;
+}
+.xjb-stat b{display:block;font-size:22px;letter-spacing:-.5px;color:var(--xjb-ink)}
+.xjb-stat small{font-size:12px;color:var(--xjb-ink-soft);font-weight:600}
+.xjb-hero-art{
+  position:relative;border-radius:24px;overflow:hidden;
+  box-shadow:0 30px 60px -22px rgba(70,48,10,.45);
+  border:1px solid rgba(255,255,255,.6);
+}
+.xjb-hero-art svg{width:100%;height:auto;aspect-ratio:4/3}
+.xjb-hero-badge{
+  position:absolute;left:16px;bottom:16px;right:16px;
+  display:flex;align-items:center;gap:12px;
+  background:rgba(20,18,15,.78);backdrop-filter:blur(8px);
+  border-radius:13px;padding:11px 15px;color:#fff;
+}
+.xjb-hero-badge .xjb-play-dot{
+  width:34px;height:34px;border-radius:50%;background:var(--xjb-amber);
+  display:grid;place-items:center;flex:0 0 auto;
+}
+.xjb-hero-badge .xjb-play-dot svg{width:12px;height:12px}
+.xjb-hero-badge b{font-size:13.5px;display:block}
+.xjb-hero-badge span{font-size:11.5px;color:#d8cdb8}
+
+/* ---------- generic section ---------- */
+.xjb-section{padding:64px 0}
+.xjb-section-alt{background:var(--xjb-white);border-top:1px solid var(--xjb-line);border-bottom:1px solid var(--xjb-line)}
+.xjb-sec-head{margin-bottom:34px;max-width:820px}
+.xjb-sec-tag{
+  display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:2px;
+  color:var(--xjb-amber-deep);text-transform:uppercase;margin-bottom:10px;
+}
+.xjb-sec-head h2{font-size:clamp(25px,3.3vw,34px);letter-spacing:-.6px;margin-bottom:12px}
+.xjb-sec-head p{color:var(--xjb-ink-soft);font-size:15px;margin:0}
+.xjb-card{
+  background:var(--xjb-white);border:1px solid var(--xjb-line);
+  border-radius:var(--xjb-radius);box-shadow:var(--xjb-shadow);
+}
+.xjb-hover-lift{transition:transform .25s,box-shadow .25s,border-color .25s}
+.xjb-hover-lift:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(60,45,15,.14);border-color:#d5c3a3}
+
+/* ---------- feature + list ---------- */
+.xjb-focus-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:32px;align-items:start}
+.xjb-focus-main{overflow:hidden;border-radius:var(--xjb-radius)}
+.xjb-focus-main .xjb-focus-cover{position:relative}
+.xjb-focus-main .xjb-focus-cover svg{width:100%;height:auto;aspect-ratio:16/9}
+.xjb-focus-main .xjb-focus-body{padding:22px 24px 26px}
+.xjb-focus-main h3{font-size:22px;margin-bottom:10px}
+.xjb-focus-main p{font-size:14.5px;color:var(--xjb-ink-soft);margin-bottom:14px}
+.xjb-meta{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:12.5px;color:var(--xjb-ink-soft);font-weight:600;align-items:center}
+.xjb-tag{
+  display:inline-block;background:var(--xjb-cream-2);color:#8a6a24;
+  font-size:11.5px;font-weight:800;padding:2px 9px;border-radius:6px;letter-spacing:.4px;
+}
+.xjb-play-chip{
+  position:absolute;left:14px;top:14px;display:inline-flex;align-items:center;gap:6px;
+  background:rgba(20,18,15,.8);color:#fff;font-size:11.5px;font-weight:700;
+  padding:5px 11px;border-radius:999px;backdrop-filter:blur(6px);
+}
+.xjb-list{display:flex;flex-direction:column;gap:0}
+.xjb-list-item{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;
+  padding:17px 4px;border-bottom:1px dashed var(--xjb-line);align-items:start;
+}
+.xjb-list-item:last-child{border-bottom:0}
+.xjb-list-item h3{font-size:16.5px;margin-bottom:6px}
+.xjb-list-item p{font-size:13.5px;color:var(--xjb-ink-soft);margin-bottom:8px}
+.xjb-item-stats{display:flex;gap:12px;font-size:12px;color:var(--xjb-ink-soft);font-weight:600;flex-wrap:wrap;align-items:center}
+.xjb-item-idx{
+  font-size:13px;font-weight:900;color:var(--xjb-amber-deep);
+  width:30px;height:30px;border-radius:9px;background:var(--xjb-cream-2);
+  display:grid;place-items:center;flex:0 0 auto;
+}
+.xjb-ops{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.xjb-op{
+  border:1px solid var(--xjb-line);background:var(--xjb-white);cursor:pointer;
+  border-radius:999px;padding:5px 12px;font-size:12.5px;font-weight:700;
+  color:var(--xjb-ink-soft);font-family:inherit;transition:.18s;display:inline-flex;gap:6px;align-items:center;
+}
+.xjb-op:hover{border-color:var(--xjb-amber-deep);color:var(--xjb-ink);background:var(--xjb-cream)}
+.xjb-op.xjb-liked{background:var(--xjb-amber);border-color:var(--xjb-amber);color:var(--xjb-ink)}
+.xjb-op.xjb-saved{background:var(--xjb-ink);border-color:var(--xjb-ink);color:#fff}
+
+/* ---------- analysis ---------- */
+.xjb-analysis{max-width:900px}
+.xjb-analysis h3{font-size:19px;margin:30px 0 12px;padding-left:14px;position:relative}
+.xjb-analysis h3::before{
+  content:"";position:absolute;left:0;top:5px;bottom:5px;width:4px;border-radius:4px;
+  background:linear-gradient(180deg,var(--xjb-amber),var(--xjb-amber-deep));
+}
+.xjb-analysis p{font-size:15px;color:#3d382f;text-align:justify}
+.xjb-pull{
+  border-left:4px solid var(--xjb-amber);background:var(--xjb-cream-2);
+  padding:16px 20px;border-radius:0 12px 12px 0;font-size:14.5px;
+  color:#5c4a24;font-weight:600;margin:22px 0;
+}
+
+/* ---------- topics / programs ---------- */
+.xjb-topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.xjb-topic{padding:22px;display:flex;flex-direction:column;gap:12px}
+.xjb-topic h3{font-size:18px}
+.xjb-topic > p{font-size:13.8px;color:var(--xjb-ink-soft);margin:0}
+.xjb-topic-state{
+  align-self:flex-start;font-size:11.5px;font-weight:800;letter-spacing:.6px;
+  padding:3px 10px;border-radius:999px;background:#e8f3e6;color:#3c7a4e;
+}
+.xjb-topic-state.xjb-state-soon{background:#f7ecdc;color:#9a6b1c}
+.xjb-topic ol{display:flex;flex-direction:column;gap:8px;margin-top:2px}
+.xjb-topic ol li{
+  font-size:13.5px;color:#423c33;padding-left:16px;position:relative;line-height:1.6;
+}
+.xjb-topic ol li::before{
+  content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;
+  background:var(--xjb-amber-deep);
+}
+
+/* ---------- authors ---------- */
+.xjb-author-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px}
+.xjb-author{padding:22px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:start}
+.xjb-ava{
+  width:56px;height:56px;border-radius:16px;display:grid;place-items:center;
+  font-weight:900;font-size:20px;color:#fff;flex:0 0 auto;letter-spacing:0;
+}
+.xjb-author h3{font-size:16.5px;margin-bottom:2px}
+.xjb-author .xjb-author-field{font-size:12.5px;font-weight:700;color:var(--xjb-amber-deep);margin-bottom:8px;display:block}
+.xjb-author p{font-size:13.3px;color:var(--xjb-ink-soft);margin:0 0 10px}
+.xjb-author-stats{display:flex;gap:14px;font-size:12px;font-weight:700;color:var(--xjb-ink-soft);flex-wrap:wrap}
+.xjb-author-more{
+  margin-top:10px;border:0;background:transparent;padding:0;cursor:pointer;
+  font-family:inherit;font-size:12.5px;font-weight:800;color:var(--xjb-ink);
+  border-bottom:2px solid var(--xjb-amber);display:inline-block;
+}
+
+/* ---------- comments two-col ---------- */
+.xjb-cmt-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.xjb-cmt{
+  padding:18px 20px;border-radius:13px;background:var(--xjb-white);
+  border:1px solid var(--xjb-line);display:flex;flex-direction:column;gap:10px;
+}
+.xjb-cmt-top{display:flex;align-items:center;gap:10px}
+.xjb-cmt-ava{
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  color:#fff;font-weight:900;font-size:13px;flex:0 0 auto;
+}
+.xjb-cmt-top b{font-size:13.5px}
+.xjb-cmt-top span{font-size:11.5px;color:var(--xjb-ink-soft);margin-left:auto;white-space:nowrap}
+.xjb-cmt p{font-size:13.6px;color:#3f3a31;margin:0}
+.xjb-stars{color:var(--xjb-amber-deep);letter-spacing:2px;font-size:13px}
+
+/* ---------- insight / inspiration ---------- */
+.xjb-insight-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.xjb-insight{padding:20px}
+.xjb-insight h3{font-size:16px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.xjb-insight h3 i{
+  width:22px;height:22px;border-radius:7px;background:var(--xjb-cream-2);
+  display:grid;place-items:center;font-style:normal;font-size:11px;color:var(--xjb-amber-deep);font-weight:900;
+}
+.xjb-insight ul{display:flex;flex-direction:column;gap:7px}
+.xjb-insight li{font-size:13.3px;color:var(--xjb-ink-soft);padding-left:14px;position:relative}
+.xjb-insight li::before{content:"›";position:absolute;left:0;color:var(--xjb-amber-deep);font-weight:900}
+
+/* ---------- news ---------- */
+.xjb-news{display:grid;gap:0}
+.xjb-news-item{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:center;padding:16px 2px;border-bottom:1px dashed var(--xjb-line)}
+.xjb-news-item:last-child{border-bottom:0}
+.xjb-news-date{font-size:12.5px;font-weight:800;color:var(--xjb-amber-deep);white-space:nowrap}
+.xjb-news-item h3{font-size:15px;margin-bottom:3px}
+.xjb-news-item p{font-size:13px;color:var(--xjb-ink-soft);margin:0}
+.xjb-news-type{font-size:11px;font-weight:800;background:var(--xjb-cream-2);color:#8a6a24;padding:3px 9px;border-radius:6px;white-space:nowrap}
+
+/* ---------- partners ---------- */
+.xjb-partners{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+.xjb-partner{
+  padding:18px;border-radius:13px;background:var(--xjb-white);
+  border:1px solid var(--xjb-line);display:flex;align-items:center;gap:12px;
+}
+.xjb-partner-logo{
+  width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+  font-weight:900;font-size:13px;color:#fff;flex:0 0 auto;
+}
+.xjb-partner b{font-size:14px;display:block}
+.xjb-partner small{font-size:11.5px;color:var(--xjb-ink-soft)}
+
+/* ---------- faq ---------- */
+.xjb-faq{display:flex;flex-direction:column;gap:10px;max-width:900px}
+.xjb-faq details{
+  background:var(--xjb-white);border:1px solid var(--xjb-line);border-radius:12px;
+  padding:0 18px;transition:.2s;
+}
+.xjb-faq details[open]{border-color:var(--xjb-amber);box-shadow:0 8px 22px rgba(217,143,19,.13)}
+.xjb-faq summary{
+  cursor:pointer;font-weight:800;font-size:15px;padding:15px 0;
+  list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center;
+}
+.xjb-faq summary::-webkit-details-marker{display:none}
+.xjb-faq summary::after{
+  content:"+";font-size:20px;color:var(--xjb-amber-deep);font-weight:600;transition:.2s;flex:0 0 auto;
+}
+.xjb-faq details[open] summary::after{content:"–"}
+.xjb-faq details p{font-size:13.8px;color:var(--xjb-ink-soft);margin:0 0 16px}
+
+/* ---------- footer ---------- */
+.xjb-footer{background:var(--xjb-ink);color:#cfc6b6;padding:56px 0 28px;margin-top:0}
+.xjb-footer-grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:34px}
+.xjb-footer h4{color:#fff;font-size:14px;letter-spacing:1px;margin-bottom:14px}
+.xjb-footer .xjb-brand{color:#fff;margin-bottom:14px}
+.xjb-footer .xjb-brand small{color:#a89e8c}
+.xjb-footer p{font-size:13px;line-height:1.85;color:#a89e8c}
+.xjb-footer ul{display:flex;flex-direction:column;gap:9px}
+.xjb-footer ul a{font-size:13px;color:#bdb3a1;transition:.2s}
+.xjb-footer ul a:hover{color:var(--xjb-amber)}
+.xjb-footer-bottom{
+  margin-top:38px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#8d8474;
+}
+
+/* ---------- floating ---------- */
+.xjb-top-btn{
+  position:fixed;right:22px;bottom:24px;z-index:80;width:48px;height:48px;border-radius:50%;
+  border:0;background:var(--xjb-ink);color:#fff;cursor:pointer;display:grid;place-items:center;
+  box-shadow:0 12px 26px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:.3s;transform:translateY(10px);
+}
+.xjb-top-btn.xjb-show{opacity:1;pointer-events:auto;transform:none}
+.xjb-toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);z-index:120;
+  background:var(--xjb-ink);color:#fff;font-size:13.5px;font-weight:700;
+  padding:11px 22px;border-radius:999px;box-shadow:0 14px 30px rgba(0,0,0,.28);
+  opacity:0;pointer-events:none;transition:.28s;
+}
+.xjb-toast.xjb-show{opacity:1;transform:translate(-50%,0)}
+
+.xjb-modal-mask{
+  position:fixed;inset:0;background:rgba(20,18,15,.55);backdrop-filter:blur(4px);
+  z-index:130;display:none;align-items:center;justify-content:center;padding:22px;
+}
+.xjb-modal-mask.xjb-show{display:flex}
+.xjb-modal{
+  background:var(--xjb-cream);border-radius:18px;max-width:520px;width:100%;
+  padding:28px;box-shadow:0 30px 70px rgba(0,0,0,.4);position:relative;
+  max-height:86vh;overflow:auto;
+}
+.xjb-modal h3{font-size:20px;margin-bottom:12px}
+.xjb-modal p{font-size:14px;color:var(--xjb-ink-soft)}
+.xjb-modal-x{
+  position:absolute;right:14px;top:12px;border:0;background:transparent;font-size:22px;
+  cursor:pointer;color:var(--xjb-ink-soft);line-height:1;padding:4px;font-family:inherit;
+}
+.xjb-modal-close{
+  margin-top:16px;width:100%;border:0;background:var(--xjb-ink);color:#fff;
+  font-family:inherit;font-weight:800;font-size:14.5px;padding:12px;border-radius:11px;cursor:pointer;
+}
+.xjb-sub-form{display:flex;flex-direction:column;gap:11px;margin-top:6px}
+.xjb-sub-form input,.xjb-sub-form textarea{
+  width:100%;border:1.5px solid var(--xjb-line);border-radius:10px;padding:10px 13px;
+  font-family:inherit;font-size:14px;background:#fff;outline:none;color:var(--xjb-ink);
+}
+.xjb-sub-form input:focus,.xjb-sub-form textarea:focus{border-color:var(--xjb-amber-deep)}
+.xjb-sub-form textarea{min-height:88px;resize:vertical}
+.xjb-sub-form button{
+  border:0;background:var(--xjb-amber);color:var(--xjb-ink);font-family:inherit;
+  font-weight:900;font-size:14.5px;padding:12px;border-radius:11px;cursor:pointer;transition:.2s;
+}
+.xjb-sub-form button:hover{background:#ffc94f}
+
+@media (max-width:980px){
+  .xjb-hero-grid{grid-template-columns:1fr;gap:34px}
+  .xjb-focus-grid{grid-template-columns:1fr}
+  .xjb-footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:820px){
+  :root{--xjb-head-h:114px}
+  .xjb-burger{display:flex;margin-left:auto}
+  .xjb-nav{
+    display:none;order:5;width:100%;margin:0 0 14px;flex-direction:column;
+    align-items:stretch;gap:2px;
+  }
+  .xjb-nav.xjb-open{display:flex}
+  .xjb-nav a{padding:11px 14px;background:var(--xjb-white);border-radius:10px;border:1px solid var(--xjb-line)}
+  .xjb-search{order:6;width:100%;margin-bottom:14px}
+  .xjb-search input{width:100%;flex:1}
+  .xjb-header .xjb-wrap{gap:10px;padding-top:10px;padding-bottom:4px}
+  .xjb-cmt-grid{grid-template-columns:1fr}
+  .xjb-hero-stats{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .xjb-stat{padding:10px}
+  .xjb-stat b{font-size:18px}
+}
+@media (max-width:520px){
+  .xjb-hero-stats{grid-template-columns:1fr}
+  .xjb-footer-grid{grid-template-columns:1fr}
+  .xjb-news-item{grid-template-columns:auto minmax(0,1fr)}
+  .xjb-news-type{display:none}
+  .xjb-author{grid-template-columns:1fr}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- S1 公告条 + 页头 -->
+<div class="xjb-sticky">
+  <div class="xjb-announce">
+    <div class="xjb-wrap">
+      <span class="xjb-announce-tag">新增</span>
+      <p>「冬季档剧集观察特辑」已上线 6 部重点剧目的深度拆解，投稿通道同步开放 · 第 12 期创作者征集本周日截止</p>
+      <a href="#xjb-programs">查看特辑 ›</a>
+    </div>
+  </div>
+  <header class="xjb-header">
+    <div class="xjb-wrap">
+      <a class="xjb-brand" href="#xjb-top">
+        <span class="xjb-brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" fill="#1c1a17"/></svg>
+        </span>
+        <span>寻剧吧入口<small>XUNJUBA · 官方视频门户</small></span>
+      </a>
+      <button class="xjb-burger" id="xjbBurger" aria-label="展开导航菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="xjb-nav" id="xjbNav">
+        <a href="#xjb-focus">焦点内容</a>
+        <a href="#xjb-about">品牌解析</a>
+        <a href="#xjb-programs">专题企划</a>
+        <a href="#xjb-authors">创作者</a>
+        <a href="#xjb-comments">用户口碑</a>
+        <a href="#xjb-faq">常见问题</a>
+      </nav>
+      <form class="xjb-search" id="xjbSearchForm" role="search">
+        <input type="search" id="xjbSearchInput" placeholder="搜索剧目 / 创作者 / 专题" aria-label="站内搜索">
+        <button type="submit">搜索</button>
+      </form>
+      <div class="xjb-search-feedback" id="xjbSearchFeedback" aria-live="polite"></div>
+    </div>
+  </header>
+</div>
+
+<main id="xjb-top">
+
+<!-- S2 品牌首屏 -->
+<section class="xjb-hero">
+  <div class="xjb-wrap xjb-hero-grid">
+    <div class="xjb-hero-copy">
+      <span class="xjb-hero-eyebrow"><i></i>官方网站 · 持续运营第 7 年</span>
+      <h1>寻剧吧入口<em>·</em>让好剧被看见</h1>
+      <p class="xjb-hero-lead">这里是寻剧吧入口的官方网站。作为面向剧迷与视频创作者的垂直内容平台，我们把剧集推荐、深度评测、创作幕后与行业观察放进同一个社区，让每一次点开都值得。</p>
+      <div class="xjb-hero-actions">
+        <a class="xjb-btn xjb-btn-primary" href="#xjb-focus">进入焦点内容</a>
+        <a class="xjb-btn xjb-btn-amber" href="#xjb-submit" id="xjbSubmitEntry">投递你的作品</a>
+        <a class="xjb-btn xjb-btn-ghost" href="#xjb-about">了解品牌</a>
+      </div>
+      <div class="xjb-hero-stats">
+        <div class="xjb-stat"><b>4,860+</b><small>高清原创视频</small></div>
+        <div class="xjb-stat"><b>1,320 位</b><small>签约 / 入驻创作者</small></div>
+        <div class="xjb-stat"><b>日均 96 万</b><small>次有效播放</small></div>
+      </div>
+    </div>
+    <div class="xjb-hero-art">
+      <svg viewBox="0 0 800 600" role="img" aria-label="寻剧吧入口主视觉：暖色剧场的幕布、放映光与播放窗口构成的品牌插图">
+        <defs>
+          <linearGradient id="xjbHeroBg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#2b2118"/>
+            <stop offset=".55" stop-color="#4a3620"/>
+            <stop offset="1" stop-color="#8a6124"/>
+          </linearGradient>
+          <linearGradient id="xjbHeroBeam" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffd479" stop-opacity=".85"/>
+            <stop offset="1" stop-color="#ffd479" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="xjbHeroCurtain" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#b3221f"/>
+            <stop offset=".5" stop-color="#e0483f"/>
+            <stop offset="1" stop-color="#8f1a18"/>
+          </linearGradient>
+          <linearGradient id="xjbHeroScreen" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f7e8c6"/>
+            <stop offset="1" stop-color="#e9c887"/>
+          </linearGradient>
+        </defs>
+        <rect width="800" height="600" fill="url(#xjbHeroBg)"/>
+        <path d="M400 40 L560 600 L240 600 Z" fill="url(#xjbHeroBeam)" opacity=".55"/>
+        <g opacity=".22" fill="#ffe4a8">
+          <circle cx="120" cy="96" r="3"/><circle cx="210" cy="66" r="2"/><circle cx="690" cy="120" r="3"/>
+          <circle cx="640" cy="58" r="2"/><circle cx="90" cy="210" r="2"/><circle cx="720" cy="250" r="2"/>
+        </g>
+        <path d="M0 0h150c-26 130-26 340 0 600H0Z" fill="url(#xjbHeroCurtain)"/>
+        <path d="M800 0H650c26 130 26 340 0 600h150Z" fill="url(#xjbHeroCurtain)"/>
+        <g opacity=".35" stroke="#5c0f0e" stroke-width="3">
+          <path d="M38 0v600"/><path d="M76 0v600"/><path d="M114 0v600"/>
+          <path d="M686 0v600"/><path d="M724 0v600"/><path d="M762 0v600"/>
+        </g>
+        <rect x="200" y="150" width="400" height="250" rx="18" fill="url(#xjbHeroScreen)" stroke="#fff6e2" stroke-width="4"/>
+        <rect x="200" y="150" width="400" height="250" rx="18" fill="none" stroke="#c79a4d" stroke-width="2" opacity=".7"/>
+        <circle cx="400" cy="275" r="52" fill="#2b2118" opacity=".9"/>
+        <path d="M386 248l42 27-42 27z" fill="#f5b73b"/>
+        <rect x="236" y="352" width="150" height="9" rx="4.5" fill="#c79a4d" opacity=".8"/>
+        <rect x="236" y="372" width="96" height="9" rx="4.5" fill="#c79a4d" opacity=".55"/>
+        <g fill="#f5b73b" opacity=".9">
+          <rect x="560" y="452" width="60" height="46" rx="8"/>
+          <rect x="636" y="452" width="60" height="46" rx="8" opacity=".7"/>
+          <rect x="484" y="452" width="60" height="46" rx="8" opacity=".5"/>
+        </g>
+        <path d="M0 520h800v80H0Z" fill="#1c1510" opacity=".55"/>
+      </svg>
+      <div class="xjb-hero-badge">
+        <span class="xjb-play-dot" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" fill="#1c1a17"/></svg>
+        </span>
+        <div>
+          <b>本周首页推荐：《长夜剧场的第七排》</b>
+          <span>原创纪录短片 · 官方首发 · 4K 高清</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S3 焦点内容 -->
+<section class="xjb-section" id="xjb-focus">
+  <div class="xjb-wrap">
+    <div class="xjb-sec-head">
+      <span class="xjb-sec-tag">Focus · 焦点内容</span>
+      <h2>寻剧吧入口本周焦点：一部好剧的三种打开方式</h2>
+      <p>由官方编辑团队与社区创作者共同推选，本期围绕冬季档剧集展开，从剧作结构到幕后手工细节，都在寻剧吧入口的镜头里。</p>
+    </div>
+
+    <div class="xjb-focus-grid">
+      <article class="xjb-card xjb-hover-lift xjb-focus-main">
+        <div class="xjb-focus-cover">
+          <svg viewBox="0 0 800 450" role="img" aria-label="焦点封面：夜色中的老剧场与亮着灯的第七排座位">
+            <defs>
+              <linearGradient id="xjbFocusSky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#1b2438"/><stop offset="1" stop-color="#3a4763"/>
+              </linearGradient>
+              <linearGradient id="xjbFocusSeat" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#f0b64a"/><stop offset="1" stop-color="#b97d18"/>
+              </linearGradient>
+            </defs>
+            <rect width="800" height="450" fill="url(#xjbFocusSky)"/>
+            <circle cx="640" cy="90" r="42" fill="#f7e2ac" opacity=".9"/>
+            <circle cx="640" cy="90" r="66" fill="#f7e2ac" opacity=".12"/>
+            <g fill="#0f1622">
+              <rect x="60" y="180" width="120" height="270" rx="6"/>
+              <rect x="200" y="140" width="90" height="310" rx="6"/>
+              <rect x="520" y="160" width="110" height="290" rx="6"/>
+              <rect x="650" y="205" width="90" height="245" rx="6"/>
+            </g>
+            <g fill="#f5b73b" opacity=".85">
+              <rect x="84" y="212" width="26" height="20" rx="3"/>
+              <rect x="126" y="212" width="26" height="20" rx="3"/>
+              <rect x="84" y="256" width="26" height="20" rx="3"/>
+              <rect x="222" y="180" width="22" height="18" rx="3"/>
+              <rect x="548" y="200" width="24" height="18" rx="3"/>
+              <rect x="590" y="200" width="24" height="18" rx="3"/>
+              <rect x="674" y="242" width="22" height="16" rx="3"/>
+            </g>
+            <rect x="0" y="330" width="800" height="120" fill="#161c28"/>
+            <g>
+              <rect x="80" y="352" width="640" height="18" rx="9" fill="#243043"/>
+              <rect x="80" y="386" width="640" height="18" rx="9" fill="#243043" opacity=".75"/>
+            </g>
+            <g fill="url(#xjbFocusSeat)">
+              <rect x="300" y="300" width="46" height="34" rx="6"/>
+              <rect x="356" y="300" width="46" height="34" rx="6" opacity=".85"/>
+              <rect x="412" y="300" width="46" height="34" rx="6" opacity=".55"/>
+            </g>
+            <path d="M330 292l26-30 26 30z" fill="#f5b73b" opacity=".95"/>
+          </svg>
+          <span class="xjb-play-chip">▶ 官方首发 · 18:42</span>
+        </div>
+        <div class="xjb-focus-body">
+          <span class="xjb-tag">深度记录</span>
+          <h3>《长夜剧场的第七排》：一间老剧场如何留住观众</h3>
+          <p>摄制组跟拍三个月，记录了剧场灯光师、票务与老观众之间的日常。影片没有宏大的旁白，只有排片表、脚步声和一盏迟迟不熄的灯。这是寻剧吧入口原创出品的第一支剧场纪录短片。</p>
+          <div class="xjb-meta">
+            <span>作者：岚序影像</span><span>播放 28.6 万</span><span>点赞 1.9 万</span><span>收藏 8,240</span>
+          </div>
+          <div class="xjb-ops" style="margin-top:14px">
+            <button class="xjb-op xjb-like" data-base="19000" type="button">♡ 点赞 <span class="xjb-like-num">19,000</span></button>
+            <button class="xjb-op xjb-save" type="button">☆ 收藏</button>
+            <button class="xjb-op xjb-copy" data-copy="寻剧吧入口 · 长夜剧场的第七排" type="button">⧉ 复制链接</button>
+            <button class="xjb-op xjb-share" type="button">↗ 分享</button>
+          </div>
+        </div>
+      </article>
+
+      <div class="xjb-list">
+        <div class="xjb-list-item">
+          <div>
+            <h3>剧作拆解：三幕结构在 12 集体量里怎么落地</h3>
+            <p>用《雾灯》前四集逐场标注，讨论编剧如何在有限时长内完成人物动机铺设与情绪蓄水。</p>
+            <div class="xjb-item-stats"><span class="xjb-tag">创作幕后</span><span>讲剧的老周</span><span>播放 15.2 万</span></div>
+          </div>
+          <div class="xjb-ops">
+            <button class="xjb-op xjb-like" data-base="8700" type="button">♡ <span class="xjb-like-num">8,700</span></button>
+            <button class="xjb-op xjb-save" type="button">☆</button>
+          </div>
+        </div>
+        <div class="xjb-list-item">
+          <div>
+            <h3>服装间的十二小时：一部年代剧的服化道现场</h3>
+            <p>从一间 30 平米的服装间出发，记录 240 套戏服的编号、修补与二次利用，附现场收音实录。</p>
+            <div class="xjb-item-stats"><span class="xjb-tag">幕后纪录</span><span>布景间小组</span><span>播放 11.4 万</span></div>
+          </div>
+          <div class="xjb-ops">
+            <button class="xjb-op xjb-like" data-base="6420" type="button">♡ <span class="xjb-like-num">6,420</span></button>
+            <button class="xjb-op xjb-save" type="button">☆</button>
+          </div>
+        </div>
+        <div class="xjb-list-item">
+          <div>
+            <h3>一集 42 分钟，剪辑台前的 190 次放弃</h3>
+            <p>剪辑指导带着三版粗剪上镜，讲清楚为什么"删掉喜欢的一场戏"反而是成片的关键动作。</p>
+            <div class="xjb-item-stats"><span class="xjb-tag">教程干货</span><span>剪接师阿禾</span><span>播放 9.8 万</span></div>
+          </div>
+          <div class="xjb-ops">
+            <button class="xjb-op xjb-like" data-base="5310" type="button">♡ <span class="xjb-like-num">5,310</span></button>
+            <button class="xjb-op xjb-save" type="button">☆</button>
+          </div>
+        </div>
+        <div class="xjb-list-item">
+          <div>
+            <h3>追剧不必赶路：把一部剧看完的四个小方法</h3>
+            <p>社区高赞投稿，讲如何在不被剧透的前提下安排观看节奏，还给出一份可打印的观剧手账模板。</p>
+            <div class="xjb-item-stats"><span class="xjb-tag">经验分享</span><span>周末观剧社</span><span>播放 7.6 万</span></div>
+          </div>
+          <div class="xjb-ops">
+            <button class="xjb-op xjb-like" data-base="4280" type="button">♡ <span class="xjb-like-num">4,280</span></button>
+            <button class="xjb-op xjb-save" type="button">☆</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S4 品牌解析 / 深度解析 -->
+<section class="xjb-section xjb-section-alt" id="xjb-about">
+  <div class="xjb-wrap">
+    <div class="xjb-sec-head">
+      <span class="xjb-sec-tag">Brand · 品牌解析</span>
+      <h2>读懂寻剧吧入口：一个剧迷社区如何长成内容生态</h2>
+      <p>寻剧吧入口并非单纯的剧集信息聚合页，而是一个由官方编辑、签约创作者与普通观众共同参与的视频内容社区。以下从品牌、内容与运营三个维度做一次公开解析。</p>
+    </div>
+
+    <div class="xjb-analysis">
+      <h3>品牌定位：从"入口"到"停留"</h3>
+      <p>寻剧吧入口最早是一个剧集观看路径的整理页面，用户来到这里，是为了弄清楚"这部剧在哪里看、值不值得看、看了之后和谁聊"。七年过去，网站的核心任务没有变，但形态发生了根本变化：从一张链接清单，变成一个以原创视频为主体的内容平台。今天打开寻剧吧入口，首页呈现的是编辑团队与创作者共同生产的高清内容——纪录短片、剧作拆解、幕后跟拍、行业访谈，而不是一堆跳转按钮。这种转变的核心判断是：用户不缺"入口"，缺的是在入口之后愿意停留三十分钟的理由。</p>
+      <p>因此，寻剧吧入口把自己定位为"剧迷的第二个客厅"。官方网站上所有内容板块都围绕这一句话展开：焦点内容解决"看什么"，专题企划解决"怎么看"，创作者矩阵解决"和谁一起看"，口碑与问答解决"看完之后说什么"。这四个环节形成闭环，让品牌从工具属性走向社区属性。我们也因此把"官方网站"这个词写进每一处页脚与介绍中，因为它代表一层承诺：这里的每一条内容都经过审核、标注来源、可追溯。</p>
+
+      <h3>内容生态：原创、正版与高清的三条底线</h3>
+      <p>在内容层面，寻剧吧入口坚持三条底线。第一是原创优先：所有标为"原创出品"的视频，从选题、拍摄到剪辑均由平台或签约创作者完成，片尾保留完整署名与拍摄花絮。第二是正版引用：涉及剧集片段的评测与解析内容，一律使用已获授权的素材，或在画面中明确二次创作说明，绝不搬运完整剧集。第三是高清交付：站内视频以 1080P 为最低标准，重点内容提供 4K 与字幕文件下载，方便教育、研究与无障碍观看场景使用。</p>
+      <p>这三条底线决定了寻剧吧入口的内容结构：纪录与访谈占比约三成，剧作与剪辑类干货约四成，社区日常与轻量分享约三成。我们不追求单条爆款，而追求"每一部剧都能在站内找到三条以上不同角度的评价"。这种策略让长尾剧集也能获得稳定曝光，也让新入驻的创作者有明确的选题方向——不必挤在热剧头部，而是找到属于自己的细分切口。</p>
+
+      <h3>运营方式：持续运营、真实反馈与社区共治</h3>
+      <p>寻剧吧入口的运营不是单向发布，而是持续的双向校准。每季度，官方会公开一次内容复盘：哪些专题被看完，哪些选题被跳过，评论区的高频疑问是什么。这些数据会直接进入下一季度的选题会。比如去年冬季，社区反复提到"希望看到剧集的失败案例"，于是有了《删掉的那三集》系列，专门讨论被剪掉的叙事线。这种由社区推动的专题，目前占到年度企划的三分之一。</p>
+      <p>社区共治则体现在三个具体机制：其一，创作者晋级制度，普通用户投稿满三支合格视频即可申请入驻，享受高清转码与流量扶持；其二，内容纠错通道，任何观众都可以对视频中的事实性错误提交修正，编辑核实后在片头加注更正说明；其三，线下放映与看片会，每年在四座城市举办，报名完全免费，优先面向社区活跃用户。我们相信，一个视频品牌的影响力不是靠口号积累的，而是靠一次次真实、可验证的互动积累的。</p>
+
+      <div class="xjb-pull">"让好剧被看见，也让看剧的人被看见。"——这是寻剧吧入口写在品牌手册第一页的话，也是这个官方网站所有内容板块的共同出发点。</div>
+
+      <h3>社会责任与长期主义</h3>
+      <p>作为一家持续运营的视频内容企业，寻剧吧入口把社会责任落在具体项目上：与高校影视社团合作开放素材库，向学生创作者免费提供正版配乐与字幕模板；每年发布《剧集观看无障碍报告》，推动字幕、音频描述等辅助内容的普及；对涉及未成年人观看的内容，统一增加分级提示与观看建议。这些工作不会直接带来流量，但它们构成了品牌值得信赖的基础。</p>
+      <p>长期主义还体现在技术投入上。站内所有视频采用自适应码率播放，弱网环境自动降级，保证在地铁、乡镇等网络条件下也能顺畅观看；内容索引支持按剧名、演员、导演、播出年份多维检索，未来还将开放标签订阅，让用户以更细的颗粒度跟踪自己关心的剧集。我们清楚，一个垂直领域的平台要想做到行业领先，靠的不是规模，而是把每一件小事做扎实的耐心。</p>
+    </div>
+  </div>
+</section>
+
+<!-- S4 专题 / 企划 -->
+<section class="xjb-section" id="xjb-programs">
+  <div class="xjb-wrap">
+    <div class="xjb-sec-head">
+      <span class="xjb-sec-tag">Programs · 专题企划</span>
+      <h2>寻剧吧入口正在进行的三个专题企划</h2>
+      <p>专题是寻剧吧入口内容生态中最费心力也最受社区欢迎的部分。每个专题由一位编辑牵头，邀请三到五位创作者共同完成，周期通常为六到十周。</p>
+    </div>
+
+    <div class="xjb-topic-grid">
+      <article class="xjb-card xjb-hover-lift xjb-topic">
+        <span class="xjb-topic-state">更新中 · 已上线 6/9 期</span>
+        <h3>冬季档剧集观察</h3>
+        <p>以九部冬季档剧集为样本，从剧本、表演、视听语言三个维度做横向对照，每期附一份可下载的观剧笔记。</p>
+        <ol>
+          <li>第 6 期 ·《雾灯》的留白：为什么沉默比台词更有力</li>
+          <li>第 5 期 · 群像剧的调度难题与三次解决方案</li>
+          <li>第 4 期 · 一个配角的完整弧光是怎样被写出来的</li>
+        </ol>
+      </article>
+
+      <article class="xjb-card xjb-hover-lift xjb-topic">
+        <span class="xjb-topic-state">更新中 · 已上线 3/6 期</span>
+        <h3>幕后十二小时</h3>
+        <p>把镜头交给剧组里最容易被忽略的岗位：服装、道具、场记、灯光。每期跟拍一个岗位完整的一个工作日。</p>
+        <ol>
+          <li>第 3 期 · 服装间的十二小时：编号、修补与二次利用</li>
+          <li>第 2 期 · 场记板背后：一个下午的连续失误记录</li>
+          <li>第 1 期 · 灯光师的手：把黄昏调成凌晨</li>
+        </ol>
+      </article>
+
+      <article class="xjb-card xjb-hover-lift xjb-topic">
+        <span class="xjb-topic-state xjb-state-soon">筹备中 · 12 月上线</span>
+        <h3>删掉的那三集</h3>
+        <p>专门讨论剧集的失败案例与剪辑遗憾。已邀请四位编剧、两位剪辑指导参与，接受社区提问。</p>
+        <ol>
+          <li>预告 · 一场被删掉的重头戏，到底该不该留</li>
+          <li>预告 · 观众反馈如何反向影响第二季剧本</li>
+          <li>预告 · 三位剪辑师同题重剪同一段素材</li>
+        </ol>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- S5 创作者矩阵 -->
+<section class="xjb-section xjb-section-alt" id="xjb-authors">
+  <div class="xjb-wrap">
+    <div class="xjb-sec-head">
+      <span class="xjb-sec-tag">Creators · 创作者矩阵</span>
+      <h2>寻剧吧入口的创作者：把热爱做成专业</h2>
+      <p>以下六位是寻剧吧入口本年度的重点创作者。他们来自不同城市、不同专业背景，但都在用视频把"看剧"这件事做得更深入。</p>
+    </div>
+
+    <div class="xjb-author-grid">
+      <article class="xjb-card xjb-hover-lift xjb-author">
+        <div class="xjb-ava" style="background:linear-gradient(135deg,#c98a2c,#8a5a12)">岚</div>
+        <div>
+          <h3>岚序影像</h3>
+          <span class="xjb-author-field">擅长：纪录短片 · 剧场观察</span>
+          <p>影视专业出身，做过三年场记，后来转向独立纪录创作。镜头安静，善于在长镜头里等待真实发生。相信观众有能力自己读懂画面，所以很少使用旁白。</p>
+          <div class="xjb-author-stats"><span>作品 42</span><span>粉丝 18.6 万</span></div>
+          <button class="xjb-author-more xjb-author-modal" data-name="岚序影像" data-info="入驻寻剧吧入口第 4 年，累计原创纪录短片 42 支，其中 9 支入选站内年度精选。最新作品《长夜剧场的第七排》获社区口碑榜第一。创作主张：让镜头等一等，真实会自己走过来。" type="button">查看创作者档案</button>
+        </div>
+      </article>
+
+      <article class="xjb-card xjb-hover-lift xjb-author">
+        <div class="xjb-ava" style="background:linear-gradient(135deg,#3f6b8a,#22415a)">周</div>
+        <div>
+          <h3>讲剧的老周</h3>
+          <span class="xjb-author-field">擅长：剧作拆解 · 结构分析</span>
+          <p>前杂志编辑，写剧评十五年。擅长把一集剧拆成节拍表，用图表讲清楚叙事节奏。视频里常出现手写批注与打印剧本，被社区称为"最像上课的剧评人"。</p>
+          <div class="xjb-author-stats"><span>作品 88</span><span>粉丝 24.3 万</span></div>
+          <button class="xjb-author-more xjb-author-modal" data-name="讲剧的老周" data-info="寻剧吧入口签约讲师，累计发布剧作拆解视频 88 支，专题《冬季档剧集观察》主笔。主张用结构而非情绪评价剧集，所有观点均在视频中给出可查验的场次依据。" type="button">查看创作者档案</button>
+        </div>
+      </article>
+
+      <article class="xjb-card xjb-hover-lift xjb-author">
+        <div class="xjb-ava" style="background:linear-gradient(135deg,#7a4f9a,#4a2c6b)">禾</div>
+        <div>
+          <h3>剪接师阿禾</h3>
+          <span class="xjb-author-field">擅长：剪辑教程 · 视听语言</span>
+          <p>自由剪辑师，服务过剧集、广告与纪录片三种类型。她的教程不藏私，连工程文件都愿意公开。常说"剪辑不是炫技，是替观众决定先看什么"。</p>
+          <div class="xjb-author-stats"><span>作品 63</span><span>粉丝 21.7 万</span></div>
+          <button class="xjb-author-more xjb-author-modal" data-name="剪接师阿禾" data-info="从业九年的自由剪辑师，寻剧吧入口剪辑类内容的核心创作者。公开过 12 份完整剪辑工程文件，站内教程累计播放超 460 万次。近期专注竖屏叙事的节奏研究。" type="button">查看创作者档案</button>
+        </div>
+      </article>
+
+      <article class="xjb-card xjb-hover-lift xjb-author">
+        <div class="xjb-ava" style="background:linear-gradient(135deg,#3d8a6a,#1f5c46)">景</div>
+        <div>
+          <h3>布景间小组</h3>
+          <span class="xjb-author-field">擅长：幕后纪录 · 美术道具</span>
+          <p>由三位美术指导组成的创作小组，专拍剧组的"物"。他们相信一件用旧的椅子比一句台词更能说明人物处境，视频常以静物特写开场。</p>
+          <div class="xjb-author-stats"><span>作品 31</span><span>粉丝 12.8 万</span></div>
+          <button class="xjb-author-more xjb-author-modal" data-name="布景间小组" data-info="三位美术指导联合运营的创作小组，入驻两年，主打幕后纪录与道具研究。专题《幕后十二小时》发起方，曾公开一套剧集美术白模供社区学习。" type="button">查看创作者档案</button>
+        </div>
+      </article>
+
+      <article class="xjb-card xjb-hover-lift xjb-author">
+        <div class="xjb-ava" style="background:linear-gradient(135deg,#b8503f,#7d2a1e)">末</div>
+        <div>
+          <h3>周末观剧社</h3>
+          <span class="xjb-author-field">擅长：社区日常 · 观剧方法</span>
+          <p>一个由普通观众组成的轻量社团，成员多是上班族。视频多是客厅自拍画质，却因为真实、具体而受欢迎，代表作是"追剧不必赶路"系列。</p>
+          <div class="xjb-author-stats"><span>作品 27</span><span>粉丝 9.4 万</span></div>
+          <button class="xjb-author-more xjb-author-modal" data-name="周末观剧社" data-info="由 14 位普通观众组成的社区社团，寻剧吧入口最早的入驻创作者之一。坚持周六更新，内容以观剧方法、手账模板与小型看片会记录为主，代表社区最日常的一面。" type="button">查看创作者档案</button>
+        </div>
+      </article>
+
+      <article class="xjb-card xjb-hover-lift xjb-author">
+        <div class="xjb-ava" style="background:linear-gradient(135deg,#4a6f8a,#2b4257)">许</div>
+        <div>
+          <h3>剧集档案馆</h3>
+          <span class="xjb-author-field">擅长：知识科普 · 行业观察</span>
+          <p>一位不肯露面的资料控，收藏了两千多册影视期刊。他的视频几乎全是资料画面与手写索引，专门解答"这部剧当年为什么没火"这类冷门问题。</p>
+          <div class="xjb-author-stats"><span>作品 54</span><span>粉丝 16.1 万</span></div>
+          <button class="xjb-author-more xjb-author-modal" data-name="剧集档案馆" data-info="专注剧集史料与行业观察的创作者，站内资料引用规范被多次作为范例。累计整理播出档案 2300 余条，为社区提供可检索的剧集年表。" type="button">查看创作者档案</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- S6 用户评价（双列短评） -->
+<section class="xjb-section" id="xjb-comments">
+  <div class="xjb-wrap">
+    <div class="xjb-sec-head">
+      <span class="xjb-sec-tag">Voice · 用户口碑</span>
+      <h2>寻剧吧入口的用户评价：来自真实社区的声音</h2>
+      <p>以下评价来自站内评论区的公开内容，覆盖观看体验、创作者服务与社区氛围三个维度，长度与角度各不相同。</p>
+    </div>
+
+    <div class="xjb-cmt-grid">
+      <article class="xjb-cmt">
+        <div class="xjb-cmt-top">
+          <span class="xjb-cmt-ava" style="background:#b8503f">林</span>
+          <b>林间有风</b><span>2026-11-18</span>
+        </div>
+        <div class="xjb-stars">★★★★★</div>
+        <p>看《长夜剧场的第七排》时正好是深夜，片尾灯灭的那一段让我关掉手机坐了很久。这种不急不躁的纪录，在现在的视频平台里太少见了。</p>
+      </article>
+
+      <article class="xjb-cmt">
+        <div class="xjb-cmt-top">
+          <span class="xjb-cmt-ava" style="background:#3d8a6a">陈</span>
+          <b>陈小满</b><span>2026-11-15</span>
+        </div>
+        <div class="xjb-stars">★★★★☆</div>
+        <p>剪辑教程很扎实，工程文件真的能下载，这点很加分。唯一的小建议是希望每期视频下面附一份时间轴，方便反复回看某一段。</p>
+      </article>
+
+      <article class="xjb-cmt">
+        <div class="xjb-cmt-top">
+          <span class="xjb-cmt-ava" style="background:#7a4f9a">阿</span>
+          <b>阿七不追剧</b><span>2026-11-12</span>
+        </div>
+        <div class="xjb-stars">★★★★★</div>
+        <p>我其实是被朋友推荐来的，本来只想查一部剧的信息，结果在专题区待了两个小时。剧作拆解那几期对我写影评帮助很大，结构清楚。</p>
+      </article>
+
+      <article class="xjb-cmt">
+        <div class="xjb-cmt-top">
+          <span class="xjb-cmt-ava" style="background:#c98a2c">老</span>
+          <b>老北门的猫</b><span>2026-11-09</span>
+        </div>
+        <div class="xjb-stars">★★★★☆</div>
+        <p>投稿流程比想象中顺畅，三天就收到编辑反馈，还给了修改建议。虽然没被选进专题，但这种认真回复的态度值得继续支持。</p>
+      </article>
+
+      <article class="xjb-cmt">
+        <div class="xjb-cmt-top">
+          <span class="xjb-cmt-ava" style="background:#4a6f8a">许</span>
+          <b>许知秋</b><span>2026-11-06</span>
+        </div>
+        <div class="xjb-stars">★★★★★</div>
+        <p>剧集档案馆的资料视频是我的通勤伴侣，每期都能学到新东西。希望以后能多做一点九十年代剧集的专题，那批剧值得被重新讨论。</p>
+      </article>
+
+      <article class="xjb-cmt">
+        <div class="xjb-cmt-top">
+          <span class="xjb-cmt-ava" style="background:#b8503f">周</span>
+          <b>周末要睡懒觉</b><span>2026-11-02</span>
+        </div>
+        <div class="xjb-stars">★★★☆☆</div>
+        <p>内容对我来说偏严肃了一些，希望有更轻松的花絮类栏目。不过搜索体验不错，输入剧名能直接找到相关解析，比翻列表快多了。</p>
+      </article>
+
+      <article class="xjb-cmt">
+        <div class="xjb-cmt-top">
+          <span class="xjb-cmt-ava" style="background:#3f6b8a">海</span>
+          <b>海边放映员</b><span>2026-10-28</span>
+        </div>
+        <div class="xjb-stars">★★★★★</div>
+        <p>线下看片会参加过两次，组织得很细致，签到、放映、讨论都安排得明明白白。一个视频网站愿意做这种不赚钱的事，挺难得的。</p>
+      </article>
+
+      <article class="xjb-cmt">
+        <div class="xjb-cmt-top">
+          <span class="xjb-cmt-ava" style="background:#8a5a12">顾</span>
+          <b>顾影自伶</b><span>2026-10-24</span>
+        </div>
+        <div class="xjb-stars">★★★★☆</div>
+        <p>画面清晰度没得说，4K 版本在电视上看非常舒服。字幕位置和字号也能自定义，对家里长辈很友好，这些细节比宣传语有说服力。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- M9 创作灵感 -->
+<section class="xjb-section xjb-section-alt" id="xjb-inspire">
+  <div class="xjb-wrap">
+    <div class="xjb-sec-head">
+      <span class="xjb-sec-tag">Inspiration · 创作灵感</span>
+      <h2>给寻剧吧入口创作者的选题与剪辑参考</h2>
+      <p>每周更新的灵感清单，由编辑团队根据社区数据整理。选一条开始，比想一个完美选题更重要。</p>
+    </div>
+    <div class="xjb-insight-grid">
+      <article class="xjb-card xjb-insight">
+        <h3><i>01</i>本周可拍的五个切口</h3>
+        <ul>
+          <li>拍一部剧的"声音地图"：只保留环境音</li>
+          <li>同一场戏的新老两版对比，讲清技术变迁</li>
+          <li>找三位不同年龄的观众聊同一个角色</li>
+          <li>记录一张剧集海报从草图到成稿</li>
+          <li>用一分钟解释一个你总说不清的剧集设定</li>
+        </ul>
+      </article>
+      <article class="xjb-card xjb-insight">
+        <h3><i>02</i>标题建议与命名习惯</h3>
+        <ul>
+          <li>具体优于宏大：用细节替代形容词</li>
+          <li>把问句留给观众，把结论留给自己</li>
+          <li>避免"震惊""必看"类失效前缀</li>
+          <li>剧名前置，观点后置，检索更友好</li>
+          <li>一条视频只回答一个问题</li>
+        </ul>
+      </article>
+      <article class="xjb-card xjb-insight">
+        <h3><i>03</i>剪辑思路：把节奏做出来</h3>
+        <ul>
+          <li>开场 8 秒内给出信息而非气氛</li>
+          <li>解说与画面交替，避免长时间对镜</li>
+          <li>关键结论处留半拍静音</li>
+          <li>字幕条统一风格，别超过两行</li>
+          <li>片尾固定三秒，为系列留出识别度</li>
+        </ul>
+      </article>
+      <article class="xjb-card xjb-insight">
+        <h3><i>04</i>上传与投稿前检查</h3>
+        <ul>
+          <li>素材来源是否已标注清楚</li>
+          <li>字幕是否完整、无错别字</li>
+          <li>音量是否统一，避免忽大忽小</li>
+          <li>封面是否在手机小屏也看得清</li>
+          <li>简介里是否有可点击的专题入口</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- S7 企业动态 -->
+<section class="xjb-section" id="xjb-news">
+  <div class="xjb-wrap">
+    <div class="xjb-sec-head">
+      <span class="xjb-sec-tag">Newsroom · 企业动态</span>
+      <h2>寻剧吧入口近期官方发布</h2>
+      <p>来自寻剧吧入口官方发布渠道的更新信息，包含内容上线、社区活动与产品调整。</p>
+    </div>
+    <div class="xjb-card" style="padding:8px 24px">
+      <div class="xjb-news">
+        <div class="xjb-news-item">
+          <span class="xjb-news-date">2026-11-20</span>
+          <div>
+            <h3>冬季档剧集观察特辑上线第 6 期</h3>
+            <p>本期由讲剧的老周主笔，配套观剧笔记已开放下载。</p>
+          </div>
+          <span class="xjb-news-type">内容上线</span>
+        </div>
+        <div class="xjb-news-item">
+          <span class="xjb-news-date">2026-11-14</span>
+          <div>
+            <h3>第 12 期创作者征集启动，主题为"删掉的那三集"</h3>
+            <p>征集面向所有入驻创作者，投稿截止至 11 月 30 日，入选作品将获得高清转码与首页推荐。</p>
+          </div>
+          <span class="xjb-news-type">社区活动</span>
+        </div>
+        <div class="xjb-news-item">
+          <span class="xjb-news-date">2026-11-05</span>
+          <div>
+            <h3>站内播放器支持字幕位置与字号自定义</h3>
+            <p>本次更新同时优化了弱网环境下的自动降级策略，移动端首帧加载时间平均缩短 0.4 秒。</p>
+          </div>
+          <span class="xjb-news-type">产品更新</span>
+        </div>
+        <div class="xjb-news-item">
+          <span class="xjb-news-date">2026-10-22</span>
+          <div>
+            <h3>秋季线下看片会在三座城市完成放映</h3>
+            <p>共 480 位社区用户参与，现场讨论实录已整理为两期视频上线。</p>
+          </div>
+          <span class="xjb-news-type">官方发布</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="xjb-sec-head" style="margin-top:52px">
+      <span class="xjb-sec-tag">Partners · 合作品牌</span>
+      <h2>与寻剧吧入口同行的伙伴</h2>
+    </div>
+    <div class="xjb-partners">
+      <div class="xjb-partner">
+        <span class="xjb-partner-logo" style="background:#3f6b8a">光</span>
+        <span><b>光影器材</b><small>拍摄设备支持</small></span>
+      </div>
+      <div class="xjb-partner">
+        <span class="xjb-partner-logo" style="background:#c98a2c">幕</span>
+        <span><b>幕间书店</b><small>线下放映场地</small></span>
+      </div>
+      <div class="xjb-partner">
+        <span class="xjb-partner-logo" style="background:#3d8a6a">声</span>
+        <span><b>声场音频</b><small>音效与配乐授权</small></span>
+      </div>
+      <div class="xjb-partner">
+        <span class="xjb-partner-logo" style="background:#7a4f9a">映</span>
+        <span><b>映画学院</b><small>创作者培养合作</small></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S7 FAQ + 联系投稿 -->
+<section class="xjb-section xjb-section-alt" id="xjb-faq">
+  <div class="xjb-wrap">
+    <div class="xjb-sec-head">
+      <span class="xjb-sec-tag">Help · 常见问题</span>
+      <h2>关于寻剧吧入口的常见问题</h2>
+      <p>整理了社区最常被问到的六个问题。如果这里没有覆盖到，欢迎通过投稿通道联系我们。</p>
+    </div>
+    <div class="xjb-faq">
+      <details open>
+        <summary>寻剧吧入口是什么？和一般的剧集网站有什么区别？</summary>
+        <p>寻剧吧入口是一个以原创视频为主体的剧迷社区，也是本品牌的官方网站。我们不做剧集盗播，而是围绕剧集生产纪录、拆解、访谈与教程类内容，并提供可检索的剧集资料索引。相比一般的剧集聚合页，我们更在意"看完之后聊什么"。</p>
+      </details>
+      <details>
+        <summary>如何成为寻剧吧入口的入驻创作者？</summary>
+        <p>先在站内投稿通道提交三支原创视频，主题不限，但需为本人拍摄或参与制作。编辑会在五个工作日内回复，通过审核后即可开通创作者主页，享受高清转码、数据看板与专题推荐机会。</p>
+      </details>
+      <details>
+        <summary>站内视频可以下载吗？</summary>
+        <p>标注"开放下载"的原创内容提供 1080P 与 4K 文件下载，用于学习、研究与非商业放映。涉及第三方素材的内容不提供下载，具体以每条视频页面的说明为准。</p>
+      </details>
+      <details>
+        <summary>发现视频里有事实错误怎么办？</summary>
+        <p>每条视频下方都有"纠错反馈"入口。提交时请附上时间点与可查证的依据，编辑核实后会在片头加注更正说明，并在更新日志中记录。我们欢迎严谨的批评。</p>
+      </details>
+      <details>
+        <summary>线下看片会如何报名？</summary>
+        <p>每场活动提前两周在站内公告条和企业动态中公布，报名免费，优先面向社区活跃用户与入驻创作者。活动通常包含放映、主创交流与自由讨论三个环节。</p>
+      </details>
+      <details>
+        <summary>内容是否适合家长与青少年观看？</summary>
+        <p>站内涉及成人议题的内容统一添加分级提示，并提供家长指引。纪录片与教程类内容整体适合青少年观看，剧集片段解析部分会标注原剧适合的年龄段。</p>
+      </details>
+    </div>
+
+    <div id="xjb-submit" style="margin-top:48px">
+      <div class="xjb-sec-head">
+        <span class="xjb-sec-tag">Submit · 投稿与联系</span>
+        <h2>把你的作品交给寻剧吧入口</h2>
+        <p>我们长期征集剧集相关的原创视频与文字。投稿后请留意站内消息，编辑会给出具体反馈。</p>
+      </div>
+      <div class="xjb-card" style="padding:24px;max-width:700px">
+        <div class="xjb-meta" style="margin-bottom:14px">
+          <span>投稿邮箱：submit@xunjuba.example</span>
+          <span>合作咨询：press@xunjuba.example</span>
+        </div>
+        <p style="font-size:13.8px;color:var(--xjb-ink-soft)">工作日 10:00–18:00 回复；节假日顺延。涉及版权与授权的内容，请随稿附上说明文件。所有投稿作品均需为原创或已获授权，一经发现搬运将取消入驻资格。</p>
+        <button class="xjb-btn xjb-btn-amber" id="xjbSubmitBtn" type="button">打开投稿表单</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- S8 页脚 -->
+<footer class="xjb-footer">
+  <div class="xjb-wrap">
+    <div class="xjb-footer-grid">
+      <div>
+        <div class="xjb-brand">
+          <span class="xjb-brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" fill="#1c1a17"/></svg>
+          </span>
+          <span>寻剧吧入口<small>XUNJUBA · 官方视频门户</small></span>
+        </div>
+        <p>寻剧吧入口官方网站，一个持续运营的剧迷视频社区。我们坚持原创、正版与高清，为创作者与观众搭建有品质的内容生态。企业地址：杭州市拱墅区幕间路 18 号影视文创园 3 号楼。</p>
+      </div>
+      <div>
+        <h4>内容板块</h4>
+        <ul>
+          <li><a href="#xjb-focus">焦点内容</a></li>
+          <li><a href="#xjb-about">品牌解析</a></li>
+          <li><a href="#xjb-programs">专题企划</a></li>
+          <li><a href="#xjb-authors">创作者矩阵</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>社区服务</h4>
+        <ul>
+          <li><a href="#xjb-comments">用户口碑</a></li>
+          <li><a href="#xjb-inspire">创作灵感</a></li>
+          <li><a href="#xjb-news">企业动态</a></li>
+          <li><a href="#xjb-submit">投稿与联系</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于我们</h4>
+        <ul>
+          <li><a href="#xjb-faq">常见问题</a></li>
+          <li><a href="#xjb-about">社会责任</a></li>
+          <li><a href="#xjb-news">合作品牌</a></li>
+          <li><a href="#xjb-top">回到顶部</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="xjb-footer-bottom">
+      <span>© 2019–2026 寻剧吧入口 · 版权所有 · 持续运营中</span>
+      <span>备案号：浙ICP备案示例 20260118 号 · 网络文化经营许可示例</span>
+    </div>
+  </div>
+</footer>
+
+<button class="xjb-top-btn" id="xjbTopBtn" aria-label="回到顶部" type="button">
+  <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 5l7 7-2 2-5-5-5 5-2-2z" fill="#fff"/></svg>
+</button>
+<div class="xjb-toast" id="xjbToast" role="status" aria-live="polite"></div>
+
+<div class="xjb-modal-mask" id="xjbModalMask">
+  <div class="xjb-modal" id="xjbModal" role="dialog" aria-modal="true" aria-labelledby="xjbModalTitle">
+    <button class="xjb-modal-x" id="xjbModalX" aria-label="关闭弹窗" type="button">×</button>
+    <h3 id="xjbModalTitle">提示</h3>
+    <div id="xjbModalBody"></div>
+    <button class="xjb-modal-close" id="xjbModalClose" type="button">知道了</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var toast = document.getElementById('xjbToast');
+  var toastTimer = null;
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('xjb-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove('xjb-show'); }, 2200);
+  }
+
+  /* mobile nav */
+  var burger = document.getElementById('xjbBurger');
+  var nav = document.getElementById('xjbNav');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('xjb-open');
+    burger.classList.toggle('xjb-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      nav.classList.remove('xjb-open');
+      burger.classList.remove('xjb-open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  /* search feedback */
+  var form = document.getElementById('xjbSearchForm');
+  var input = document.getElementById('xjbSearchInput');
+  var fb = document.getElementById('xjbSearchFeedback');
+  var searchIndex = [
+    {k:'长夜剧场的第七排', s:'焦点内容 · 岚序影像的原创纪录短片'},
+    {k:'冬季档剧集观察', s:'专题企划 · 更新至第 6 期'},
+    {k:'幕后十二小时', s:'专题企划 · 跟拍剧组岗位'},
+    {k:'剪接师阿禾', s:'创作者 · 剪辑教程与视听语言'},
+    {k:'讲剧的老周', s:'创作者 · 剧作拆解与结构分析'},
+    {k:'删掉的那三集', s:'专题企划 · 12 月上线，征集进行中'},
+    {k:'剧集档案馆', s:'创作者 · 剧集史料与行业观察'},
+    {k:'投稿', s:'页面底部 · 投稿与联系板块'}
+  ];
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var q = input.value.trim();
+    if(!q){
+      fb.textContent = '请输入剧名、创作者或专题名后再搜索。';
+      return;
+    }
+    var hit = searchIndex.filter(function(item){
+      return item.k.toLowerCase().indexOf(q.toLowerCase()) > -1 || q.indexOf(item.k) > -1;
+    });
+    if(hit.length){
+      fb.textContent = '找到 ' + hit.length + ' 条相关内容：' + hit.slice(0,2).map(function(i){ return i.k + '（' + i.s + '）'; }).join('；');
+    }else{
+      fb.textContent = '暂未收录「' + q + '」，可尝试更短的关键词，或前往投稿板块推荐该剧目。';
+    }
+  });
+
+  /* like / save / copy / share */
+  document.querySelectorAll('.xjb-like').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var numEl = btn.querySelector('.xjb-like-num');
+      var base = parseInt(btn.getAttribute('data-base') || '0', 10);
+      var liked = btn.classList.toggle('xjb-liked');
+      var val = liked ? base + 1 : base;
+      if(numEl){ numEl.textContent = val.toLocaleString('en-US'); }
+      else { btn.textContent = (liked ? '♥ 已赞' : '♡ 点赞'); }
+      showToast(liked ? '已点赞，感谢支持' : '已取消点赞');
+    });
+  });
+  document.querySelectorAll('.xjb-save').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var saved = btn.classList.toggle('xjb-saved');
+      btn.textContent = saved ? '★ 已收藏' : '☆ 收藏';
+      showToast(saved ? '已加入收藏夹' : '已取消收藏');
+    });
+  });
+  document.querySelectorAll('.xjb-copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var text = btn.getAttribute('data-copy') || '寻剧吧入口';
+      var ok = false;
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){ showToast('链接已复制到剪贴板'); }).catch(function(){ showToast('复制失败，请手动选择文本'); });
+      }else{
+        showToast('当前环境不支持自动复制，请手动选择文本');
+      }
+    });
+  });
+  document.querySelectorAll('.xjb-share').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      openModal('分享到社区', '<p>你可以把这条内容分享到微信、微博或 QQ。复制下方标题后粘贴到对应应用即可。</p><p style="background:#fff;border:1px solid #e4d8c4;border-radius:10px;padding:12px;font-weight:700;">寻剧吧入口 · 长夜剧场的第七排</p>');
+    });
+  });
+
+  /* author modal */
+  document.querySelectorAll('.xjb-author-modal').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var name = btn.getAttribute('data-name');
+      var info = btn.getAttribute('data-info');
+      openModal(name + ' · 创作者档案', '<p>' + info + '</p>');
+    });
+  });
+
+  /* modal control */
+  var mask = document.getElementById('xjbModalMask');
+  var modalTitle = document.getElementById('xjbModalTitle');
+  var modalBody = document.getElementById('xjbModalBody');
+  function openModal(title, html){
+    modalTitle.textContent = title;
+    modalBody.innerHTML = html;
+    mask.classList.add('xjb-show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    mask.classList.remove('xjb-show');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('xjbModalX').addEventListener('click', closeModal);
+  document.getElementById('xjbModalClose').addEventListener('click', closeModal);
+  mask.addEventListener('click', function(e){ if(e.target === mask){ closeModal(); } });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && mask.classList.contains('xjb-show')){ closeModal(); } });
+
+  /* submit form */
+  function openSubmitForm(){
+    openModal('投稿表单', '' +
+      '<form class="xjb-sub-form" id="xjbSubForm">' +
+      '<input type="text" name="name" placeholder="你的昵称或团队名" required>' +
+      '<input type="text" name="title" placeholder="作品标题" required>' +
+      '<textarea name="desc" placeholder="用两三句话说清楚这条视频讲了什么、素材来源是否已获授权" required></textarea>' +
+      '<button type="submit">提交投稿意向</button>' +
+      '</form>' +
+      '<p style="font-size:12.5px;color:#6b6253;margin-top:12px;">提交后由编辑在五个工作日内联系，请确保联系方式准确。</p>');
+    var subForm = document.getElementById('xjbSubForm');
+    subForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      closeModal();
+      showToast('投稿意向已记录，编辑会尽快联系你');
+    });
+  }
+  document.getElementById('xjbSubmitBtn').addEventListener('click', openSubmitForm);
+  document.getElementById('xjbSubmitEntry').addEventListener('click', function(e){
+    e.preventDefault();
+    openSubmitForm();
+  });
+
+  /* back to top */
+  var topBtn = document.getElementById('xjbTopBtn');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 420){ topBtn.classList.add('xjb-show'); }
+    else{ topBtn.classList.remove('xjb-show'); }
+  }, {passive:true});
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+})();
+</script>
+</body>
+  </html>
